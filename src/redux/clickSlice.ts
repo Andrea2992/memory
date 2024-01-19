@@ -13,4 +13,4 @@ export const clickSLice = createSlice({
 })
 
 export const { changeBooleanValue } = clickSLice.actions;
-export default clickSLice.reducer
+export default clickSLice.reducer;

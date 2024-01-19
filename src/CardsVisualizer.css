@@ -1,0 +1,7 @@
+#cards-container {
+    text-align: center;
+    background: blue;
+    width: 100%;
+    min-height: 100px;
+    padding: 40px 0;
+}

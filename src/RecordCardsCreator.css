@@ -1,0 +1,13 @@
+.single-card-container {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: cyan;
+    margin: 10px;
+}
+
+.memory-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

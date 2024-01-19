@@ -4,14 +4,17 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import store from './redux/store'
+//import { MemoryGame } from './memory-game/MemoryGame';
 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+//console.log(store.getState())
+//const memoryGame = new MemoryGame();
 
 store.subscribe(() => {
-  console.log('fatto');
+  //memoryGame.gameStatus();
   console.log(store.getState())
 })
 

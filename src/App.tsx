@@ -2,6 +2,7 @@ import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeBooleanValue } from './redux/clickSlice';
 import { IRootState } from './redux/store';
+import CardsVisualizer from './CardsVisualizer';
 
 
 function App() {
@@ -10,7 +11,6 @@ function App() {
 
   return (
     <>
-      <div>WIP</div>
       <div id='try-button'>
         <div id='click-value'>value: {clickedValue.toString()}</div>
         <button
@@ -19,6 +19,7 @@ function App() {
           click me
         </button>
       </div>
+      <CardsVisualizer />
     </>
   );
 }
