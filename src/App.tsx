@@ -1,25 +1,33 @@
 import './App.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeBooleanValue } from './redux/clickSlice';
-import { IRootState } from './redux/store';
 import CardsVisualizer from './CardsVisualizer';
+import GameStateText from './GameStateText';
+import Header from './Header';
+import { useSelector } from 'react-redux';
+import { IRootState } from './redux/store';
 
 
 function App() {
-  const dispatch = useDispatch();
-  const clickedValue = useSelector((state: IRootState) => state.clicked.value)
 
+  const classPainter = useSelector((state: IRootState) => state.gameStatus.message);
+  function classSelector(message: string) {
+    if (message === 'RIGHT ANSWER') {
+      return 'content-container-right'
+    } else if (message === 'WRONG ANSWER') {
+      return 'content-container-wrong'
+    } else if (message === 'YOU WIN!') {
+      return 'content-container-win'
+    } else {
+      return 'content-container-basic'
+    }
+  };
+  
   return (
     <>
-      <div id='try-button'>
-        <div id='click-value'>value: {clickedValue.toString()}</div>
-        <button
-          onClick={() => dispatch(changeBooleanValue())}
-        >
-          click me
-        </button>
+      <Header />
+      <div className={classSelector(classPainter)}>
+        <CardsVisualizer />
+        <GameStateText />
       </div>
-      <CardsVisualizer />
     </>
   );
 }

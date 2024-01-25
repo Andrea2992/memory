@@ -1,15 +1,18 @@
-import { useDispatch } from 'react-redux';
 import './CardsVisualizer.css';
-import memoryCards from './memory-cards';
+import { IRootState } from './redux/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import memoryCards, { MemoryCard } from './memory-cards';
 import RecordCardsCreator from './RecordCardsCreator';
-import { useEffect, useState } from 'react';
-import { updateCards } from './redux/memoryCardsSlice';
-
-
+import OptionsBar from './OptionsBar';
+import { newGame, updateCards } from './redux/memoryCardsSlice';
+import { updateText } from './redux/gameStateTextSLice';
+import { newGameScore } from './redux/scoreSlice';
 
 function CardsVisualizer() {
-    const [cards, setCards] = useState(memoryCards);
     const dispatch = useDispatch();
+    const cards: MemoryCard[] = useSelector((state: IRootState) => state.memoryCardList.value);
+
     const shuffleArray = <T extends any[]>(array: T): T => {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -20,21 +23,31 @@ function CardsVisualizer() {
         return array
     }
 
+    const handleNewGame = (cardsArray: MemoryCard[]) => {
+        const newArray = shuffleArray([...cardsArray]);
+        dispatch(newGame(newArray));
+        dispatch(updateText({ hint: 'choose one card', message: 'started new game!' }));
+        dispatch(newGameScore())
+    };
+
     const handleCardClicked = (id: number) => {
         const index = cards.findIndex((card) => {
             return card.key === id
         });
-        const cardCopy = {...cards[index]}
+        const cardCopy = { ...cards[index] };
+        if (cardCopy.isPlayable === false) {
+            return
+        };
         const tempCards = [...cards];
         cardCopy.isVisible = !tempCards[index].isVisible;
         tempCards[index] = cardCopy;
-        setCards(tempCards);
-        dispatch(updateCards(tempCards))
+        dispatch(updateCards(tempCards));
     }
 
     useEffect(() => {
-        const newArray = shuffleArray([...cards]);
-        setCards(newArray)
+        const newArray = shuffleArray([...memoryCards]);
+        dispatch(updateCards(newArray));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const memoryRecordCards = cards.map((c) =>
@@ -49,6 +62,10 @@ function CardsVisualizer() {
 
     return (
         <>
+            <OptionsBar
+                newGame={handleNewGame}
+                cards={memoryCards}
+            />
             <div id="cards-container">{memoryRecordCards}</div>
         </>
     )

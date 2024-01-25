@@ -1,10 +1,12 @@
 import './RecordCardsCreator.css';
-import { useState } from 'react';
 
 function RecordCardsCreator({ image, isVisible, id, onCardClicked }: RecordCardsCreatorProps) {
 
     const backCard = "../assets/card-back.jpg";
     const frontOrBack = isVisible === true ? image : backCard;
+    const goldBorder = 'memory-image gold-border';
+    const redBorder = 'memory-image red-border';
+    const borderClass = isVisible === false ? goldBorder : redBorder;
 
     return (
         <>
@@ -12,7 +14,7 @@ function RecordCardsCreator({ image, isVisible, id, onCardClicked }: RecordCards
                 className="single-card-container"
                 onClick={() => onCardClicked(id)}
             >
-                <img className='memory-image' src={frontOrBack} alt="tag" />
+                <img className={borderClass} src={frontOrBack} alt="memory-card" />
             </div>
         </>
     )

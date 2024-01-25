@@ -1,11 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit'
-import click from './clickSlice'
+import { configureStore } from '@reduxjs/toolkit';
 import memoryCardList from './memoryCardsSlice';
+import GameStatusText from './gameStateTextSLice';
+import gameScore from './scoreSlice';
+
 
 const store = configureStore({
     reducer: {
-      clicked: click,
-      memoryCardList: memoryCardList
+      memoryCardList: memoryCardList,
+      gameStatus: GameStatusText,
+      gameScore: gameScore
     },
   })
 

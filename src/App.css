@@ -1,21 +1,27 @@
-/**************CLICK BUTTON*****************/
-
-#try-button {
-    margin: 0 auto;
-    padding-top: 30px;
-    width: 150px;
-    height: 40px;
-    display: flex;
+.content-container-wrong {
+    width: 100%;
+    min-height: calc(100vh - 150px);
+    background: url(../public/assets/front-painter.png) no-repeat;
+    background-size: 70%;
+    background-position: 175% 35%;
 }
 
-button {
-    display: inline-block;
-    padding: 0px 25px;
+.content-container-right {
+    width: 100%;
+    min-height: calc(100vh - 150px);
+    background: url(../public/assets/rear-painter.png) no-repeat;
+    background-size: 70%;
+    background-position: -70% 50%;
 }
 
-#click-value {
-    width: 80px;
-    height: 50px;
+.content-container-win {
+    width: 100%;
+    min-height: calc(100vh - 150px);
+    background: url(../public/assets/winner.png) no-repeat center / cover;
+    background-size: 110%;
 }
 
-/*****************CARDS******************/
+.content-container-basic {
+    width: 100%;
+    min-height: calc(100vh - 150px);
+}

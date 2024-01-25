@@ -3,16 +3,17 @@ import { createSlice } from '@reduxjs/toolkit'
 export const memoryCard = createSlice({
     name: 'memoryCard',
     initialState: {
-        value: [
-            
-        ]
+        value: [],
     },
     reducers: {
         updateCards: (state, action) => {
-            state.value = action.payload
-        }
+            state.value = action.payload;
+        },
+        newGame: (state, action) => {
+            state.value = action.payload;
+        },
     },
 })
 
-export const {updateCards} = memoryCard.actions;
+export const { updateCards, newGame } = memoryCard.actions;
 export default memoryCard.reducer;
