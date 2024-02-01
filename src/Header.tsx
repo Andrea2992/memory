@@ -1,4 +1,5 @@
 import './Header.css';
+import './HeaderResponsive.css';
 
 function Header() {
     return (

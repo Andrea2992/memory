@@ -1,4 +1,5 @@
 import './GameStateText.css';
+import './GameStateTextResponsive.css';
 import { IRootState } from './redux/store';
 import { useSelector } from 'react-redux';
 

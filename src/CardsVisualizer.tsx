@@ -1,4 +1,5 @@
 import './CardsVisualizer.css';
+import './CardsVisualizerResponsive.css';
 import { IRootState } from './redux/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';

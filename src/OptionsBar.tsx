@@ -1,4 +1,5 @@
-import "./OptionsBar.css"
+import "./OptionsBar.css";
+import "./OptionsBarResponsive.css";
 import { MemoryCard } from "./memory-cards";
 
 function OptionsBar({ newGame, cards }: OptionsBarProps) {

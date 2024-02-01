@@ -1,4 +1,5 @@
 import './App.css';
+import './AppResponsive.css';
 import CardsVisualizer from './CardsVisualizer';
 import GameStateText from './GameStateText';
 import Header from './Header';
@@ -17,14 +18,14 @@ function App() {
     } else if (message === 'YOU WIN!') {
       return 'content-container-win'
     } else {
-      return 'content-container-basic'
+      return ''
     }
   };
-  
+
   return (
     <>
       <Header />
-      <div className={classSelector(classPainter)}>
+      <div className={classSelector(classPainter)} id='content-container'>
         <CardsVisualizer />
         <GameStateText />
       </div>

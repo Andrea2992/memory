@@ -1,8 +1,9 @@
 import './RecordCardsCreator.css';
+import './RecordCardsCreatorResponsive.css';
 
 function RecordCardsCreator({ image, isVisible, id, onCardClicked }: RecordCardsCreatorProps) {
 
-    const backCard = "assets/card-back.jpg";
+    const backCard = "memory/assets/card-back.jpg";
     const frontOrBack = isVisible === true ? image : backCard;
     const goldBorder = 'memory-image gold-border';
     const redBorder = 'memory-image red-border';
