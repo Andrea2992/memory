@@ -29,8 +29,13 @@ store.subscribe(() => {
   };
   const gameStateToText = gameStatus.type.replaceAll('_', ' ');
   const actualMessage = store.getState().gameStatus.message;
+  const isNotRightOrWrong = actualMessage !== 'RIGHT ANSWER' && actualMessage !== 'WRONG ANSWER';
+  const isNotChooseOneOrNewGame = actualMessage !== 'CHOOSE ONE CARD' && actualMessage !== 'STARTED NEW GAME!';
   if (gameStatus.type === 'end_of_game' && actualMessage !== 'YOU WIN!') {
     store.dispatch(updateText({ hint: '', message: 'you win!' }))
+  };
+  if (gameStatus.type === 'choose_one_card' && isNotChooseOneOrNewGame && isNotRightOrWrong) {
+    store.dispatch(updateText({ hint: '', message: gameStateToText }))
   };
   if (gameStatus.type === 'choose_one_more' && actualMessage !== 'CHOOSE ONE MORE') {
     store.dispatch(updateText({ hint: '', message: gameStateToText }))
