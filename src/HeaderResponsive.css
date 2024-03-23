@@ -1,4 +1,18 @@
-@media (min-width: 1px) and (max-width: 499.98px) {
+@media (min-width: 1px) and (max-width: 319.98px) {
+    
+    #header-banner {
+        height: 70px;
+        justify-content: left;
+    }
+
+    #header-title {
+        font-size: 30px;
+        margin-left: 4%;
+    }
+
+}
+
+@media (min-width: 320px) and (max-width: 499.98px) {
     
     #header-banner {
         height: 70px;

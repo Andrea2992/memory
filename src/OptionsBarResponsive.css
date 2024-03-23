@@ -8,9 +8,9 @@
     }
 
     #new-game-button {
-        height: 24px;
+        height: 34px;
         margin-right: 12px;
-        font-size: 15px;
+        font-size: 22px;
         background: linear-gradient(135deg, rgba(59, 65, 13, 1) 0%, rgba(196, 151, 54, 1) 15%, rgba(144, 238, 144, 1) 85%, rgba(59, 65, 13, 1) 100%);
     }
 
@@ -75,8 +75,8 @@
     }
 
     #new-game-button {
-        height: 24px;
-        font-size: 15px;
+        height: 30px;
+        font-size: 20px;
     }
 
 }
